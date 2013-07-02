@@ -1,0 +1,14 @@
+{
+  "name": "node-nsp",
+  "description": "NSP client library",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "request": "*",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "vows": "*"
+  },
+  "main": "index"
+}
