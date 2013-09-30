@@ -1,10 +1,9 @@
 {
-  "name": "node-nsp",
-  "description": "NSP client library",
+  "name": "node-hypercat",
+  "description": "Hypercat library for node.js",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "request": "*",
     "underscore": "*"
   },
   "devDependencies": {

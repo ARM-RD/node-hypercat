@@ -1,2 +1,5 @@
 
-module.exports = require('./lib/nsp');
+module.exports = {
+  Hypercat: require('./lib/Hypercat'),
+  Resource: require('./lib/Resource')
+}
