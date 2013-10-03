@@ -47,6 +47,13 @@ var BASIC_CAT_WITH_CAT = JSON.stringify({'item-metadata':[{
                     val:'inner'}]
                 }]});
 
+/*var outer = new Hypercat("outer");
+var inner = new Hypercat("inner");
+outer.addItem(inner, "http://example.com/someresource");
+console.log(BASIC_CAT_WITH_CAT);
+console.log(Hypercat.fromJSON(outer.toJSON()).toJSON());
+*/
+
 // Create a Test Suite
 vows.describe('Hypercat library').addBatch({
   'Creating a top level catalog': {
@@ -109,5 +116,18 @@ vows.describe('Hypercat library').addBatch({
     'that converts to JSON': function (cat) {
       assert.equal(JSON.stringify(cat.toJSON()), BASIC_CAT_WITH_CAT);
     }
+  },
+  
+  'Converts to and from JSON': {
+    topic: function() {
+      var outer = new Hypercat("outer");
+      var inner = new Hypercat("inner");
+      outer.addItem(inner, "http://example.com/someresource");
+      return Hypercat.fromJSON(outer.toJSON());
+    },
+    
+    'that converts to JSON': function (cat) {
+      assert.equal(JSON.stringify(cat.toJSON()), BASIC_CAT_WITH_CAT);
+    }
   }
-}).run(); // Run it
+}).run(); // Run it*/
