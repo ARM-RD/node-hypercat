@@ -129,5 +129,25 @@ vows.describe('Hypercat library').addBatch({
     'that converts to JSON': function (cat) {
       assert.equal(JSON.stringify(cat.toJSON()), BASIC_CAT_WITH_CAT);
     }
+  },
+    
+  'Hypercat can be got': {
+    topic: function() {
+      Hypercat.get("https://alertmeadaptor.appspot.com/cat", this.callback);
+    },
+    
+    'we get a Hypercat object': function (err, item) {
+      assert.instanceOf(item, Hypercat)
+    }
+  },
+    
+  'Hypercat can be got with key': {
+    topic: function() {
+      Hypercat.get("https://alertmeadaptor.appspot.com/cat/armmeetingrooms.json", "QfcAHs8CPO", this.callback);
+    },
+    
+    'we get an Hypercat object': function (err, item) {
+      assert.instanceOf(item, Hypercat)
+    }
   }
 }).run(); // Run it*/
