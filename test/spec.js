@@ -141,13 +141,57 @@ vows.describe('Hypercat library').addBatch({
     }
   },
     
-  'Hypercat can be got with key': {
+ /* 'Hypercat can be got with key': {
     topic: function() {
       Hypercat.get("https://alertmeadaptor.appspot.com/cat/armmeetingrooms.json", "QfcAHs8CPO", this.callback);
     },
     
     'we get an Hypercat object': function (err, item) {
       assert.instanceOf(item, Hypercat)
+    }
+  },
+    */
+  'Hypercat can be filtered with relationFilter': {
+    topic: function() {
+      var cat = new Hypercat("a description");
+      var item = new Resource("a description", "application/json").setHref("http://example.com");
+      cat.addItem(item, "http://example.com/someresource");
+      return cat.filter(cat.relationFilter(['not there']));
+    },
+
+    'to no items': function (item) {
+      //console.log(JSON.stringify(item));
+      return (item.items().length == 0);
+      //assert.instanceOf(item, Hypercat)
+    }
+  },
+
+  'Hypercat can be reduced by filtering with relationValueFilter': {
+    topic: function() {
+      var cat = new Hypercat("a description");
+      var item = new Resource("a description", "application/json").setHref("http://example.com");
+      cat.addItem(item, "http://example.com/someresource");
+      return cat.filter(cat.relationValueFilter([{'not there':'value'}, {'not there either':'value2'}]));
+    },
+
+    'to no items': function (item) {
+      return (item.items().length == 0);
+      //assert.instanceOf(item, Hypercat)
+    }
+  },
+
+  'Hypercat passes some items with relationValueFilter': {
+    topic: function() {
+      var cat = new Hypercat("a description");
+      var item = new Resource("a description", "application/json").setHref("http://example.com");
+      cat.addItem(item, "http://example.com/someresource");
+      return cat.filter(cat.relationValueFilter([{'urn:X-tsbiot:rels:isContentType':'application/json'}]));
+    },
+
+    'to some items': function (item) {
+      //console.log(JSON.stringify(item));
+      return (item.items().length > 0);
+      //assert.instanceOf(item, Hypercat)
     }
   }
 }).run(); // Run it*/
