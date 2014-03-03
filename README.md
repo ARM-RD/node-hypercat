@@ -4,8 +4,6 @@ A small library for fetching, pushing and manipluting Hypercats. Read more about
 
 Based on: https://github.com/1248/Tools/tree/master/hypercat_py
 
-# Using data from HyperCat
-
 ```javascript
 var hypercat = require('node-hypercat');
 ```
