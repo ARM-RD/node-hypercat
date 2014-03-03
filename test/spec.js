@@ -141,16 +141,6 @@ vows.describe('Hypercat library').addBatch({
     }
   },
     
- /* 'Hypercat can be got with key': {
-    topic: function() {
-      Hypercat.get("https://alertmeadaptor.appspot.com/cat/armmeetingrooms.json", "QfcAHs8CPO", this.callback);
-    },
-    
-    'we get an Hypercat object': function (err, item) {
-      assert.instanceOf(item, Hypercat)
-    }
-  },
-    */
   'Hypercat can be filtered with relationFilter': {
     topic: function() {
       var cat = new Hypercat("a description");
