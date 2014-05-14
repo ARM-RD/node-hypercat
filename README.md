@@ -94,10 +94,14 @@ function walkCat(url, callback) {
 }
 ```
 
-License
-=======
+#Logo
+The [logo](https://github.com/ARM-RD/node-hypercat/blob/master/logo/hypercat.svg) is released under the permissive [CC-BY](http://creativecommons.org/licenses/by/4.0/legalcode) license which allows modification and re-distribution provided that the original author is credited.
 
-Copyright (c) 2014 Andy Pritchard &lt;firstname.lastname@arm.com&gt;
+
+
+#License
+
+Copyright (c) 2014 Andy Pritchard, ARM Ltd. &lt;firstname.lastname@arm.com&gt;
  
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
