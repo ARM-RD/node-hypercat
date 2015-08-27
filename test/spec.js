@@ -5,45 +5,45 @@ var Resource = require('../lib/Resource');
 
 
 var BASIC_CAT = JSON.stringify({ 'item-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
-                    val: 'application/vnd.tsbiot.catalogue+json' }, {
-                    rel: 'urn:X-tsbiot:rels:hasDescription:en',
+                    rel: 'urn:X-hypercat:rels:isContentType',
+                    val: 'application/vnd.hypercat.catalogue+json' }, {
+                    rel: 'urn:X-hypercat:rels:hasDescription:en',
                     val: 'a description' }],
                 items: [] });
 
 var BASIC_ITEM = JSON.stringify({
                   href:'http://example.com',
                   'i-object-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
+                    rel: 'urn:X-hypercat:rels:isContentType',
                     val: 'application/json' },{
-                    rel: 'urn:X-tsbiot:rels:hasDescription:en',
+                    rel: 'urn:X-hypercat:rels:hasDescription:en',
                     val: 'a description'}]});
 
 var BASIC_CAT_WITH_ITEM = JSON.stringify({'item-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
-                    val: 'application/vnd.tsbiot.catalogue+json' },{
-                    rel: 'urn:X-tsbiot:rels:hasDescription:en',
+                    rel: 'urn:X-hypercat:rels:isContentType',
+                    val: 'application/vnd.hypercat.catalogue+json' },{
+                    rel: 'urn:X-hypercat:rels:hasDescription:en',
                     val: 'a description'}],
                   items: [{
                   href:'http://example.com/someresource',
                   'i-object-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
+                    rel: 'urn:X-hypercat:rels:isContentType',
                     val: 'application/json' },{
-                    rel:'urn:X-tsbiot:rels:hasDescription:en',
+                    rel:'urn:X-hypercat:rels:hasDescription:en',
                     val:'a description'}]
                 }]});
 
 var BASIC_CAT_WITH_CAT = JSON.stringify({'item-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
-                    val: 'application/vnd.tsbiot.catalogue+json' },{
-                    rel: 'urn:X-tsbiot:rels:hasDescription:en',
+                    rel: 'urn:X-hypercat:rels:isContentType',
+                    val: 'application/vnd.hypercat.catalogue+json' },{
+                    rel: 'urn:X-hypercat:rels:hasDescription:en',
                     val: 'outer'}],
                   items: [{
                   href:'http://example.com/someresource',
                   'i-object-metadata':[{
-                    rel: 'urn:X-tsbiot:rels:isContentType',
-                    val: 'application/vnd.tsbiot.catalogue+json' },{
-                    rel:'urn:X-tsbiot:rels:hasDescription:en',
+                    rel: 'urn:X-hypercat:rels:isContentType',
+                    val: 'application/vnd.hypercat.catalogue+json' },{
+                    rel:'urn:X-hypercat:rels:hasDescription:en',
                     val:'inner'}]
                 }]});
 
@@ -175,7 +175,7 @@ vows.describe('Hypercat library').addBatch({
       var cat = new Hypercat("a description");
       var item = new Resource("a description", "application/json").setHref("http://example.com");
       cat.addItem(item, "http://example.com/someresource");
-      return cat.filter(cat.relationValueFilter([{'urn:X-tsbiot:rels:isContentType':'application/json'}]));
+      return cat.filter(cat.relationValueFilter([{'urn:X-hypercat:rels:isContentType':'application/json'}]));
     },
 
     'to some items': function (item) {
