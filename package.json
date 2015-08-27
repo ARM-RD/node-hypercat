@@ -1,7 +1,7 @@
 {
   "name": "node-hypercat",
   "description": "Hypercat library for node.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "underscore": "*",
     "request": "*"
