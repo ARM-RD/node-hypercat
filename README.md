@@ -31,7 +31,7 @@ hypercat.Hypercat.get('http://data.openiot.org/cat', function (err, remoteCat) {
 var items = cat.relations();
 
 // Get meta-data values (as array)
-console.log(cat.values('urn:X-tsbiot:rels:isContentType'));
+console.log(cat.values('urn:X-hypercat:rels:isContentType'));
 
 // View metadata as object
 console.log(cat.metadata);
@@ -71,7 +71,7 @@ function walkCat(url, callback) {
         console.log('Fetched ' + url);
         if (err) return callback(err);
         async.map(remoteCat.items(), function (item, callback) {
-            if (item.contentType()[0] === "application/vnd.tsbiot.catalogue+json") {
+            if (item.contentType()[0] === "application/vnd.hypercat.catalogue+json") {
                 // It's a HyperCat - walk it
                 console.log("Walking HyperCat: " + item.href());
                 walkCat(item.href(), callback);
